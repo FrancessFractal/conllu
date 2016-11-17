@@ -8,4 +8,4 @@ The Sentence object represents a sentence in the conllu file. It contains intern
 #Token object
 The Token object is representative of the individual word. It is possible to split a token into separate parts, for example to rectify tokenization errors. It is also possible to merge tokens into a single token object.
 #MultiwordToken object
-The MultiwordToken object is specific to tokens composed of multiple semantic parts. It is composed of a parent, which is the full word found in the text; and of children, which are the semantically indipendent sub-parts. The id of a multi-word token is simply the range of its children's ids. Children id's follow from the preceding tokens in the sentence.
+The MultiwordToken object is specific to tokens composed of multiple semantic parts. It is composed of a parent, which is the full word found in the text; and of children, which are the semantically independent sub-parts. The id of a multi-word token is simply the range of its children's ids. Children id's follow from the preceding tokens in the sentence.
