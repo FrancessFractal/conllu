@@ -21,13 +21,13 @@ if (typeof exports !== 'undefined' && this.exports !== exports) {
  *
  * @constructor
  */
-var MultiwordToken = function() { //constructor for Multiword Tokens
+var MultiwordToken = function() {
+    //constructor for Multi-word Tokens
     Token.call(this); // gives the MWT all the properties created in the Token constructor (note: not token prototype)
     this.tokens = []; // creates the array that contains the children of the MWT
-    TokenAggregate.call(this,'tokens'); //gives the MWT all the properties created in the TA constructor
+    TokenAggregate.call(this,'tokens'); //gives the MWT all the properties created in the Token Aggregate constructor
 };
 MultiwordToken.prototype = new Token(); // gives new instance of MWT the properties of a new instance of Token
-//note: still working this out.
 
 /**
  * The id in a MultiwordToken is based on the MultiwordToken's subtokens.
@@ -35,13 +35,13 @@ MultiwordToken.prototype = new Token(); // gives new instance of MWT the propert
  * The id cannot be updated here.
  * @type {String}
  */
-Object.defineProperty(MultiwordToken.prototype,'id',{ //to prototype or not to prototype...
+Object.defineProperty(MultiwordToken.prototype,'id',{
     get: function() {
         if (this.tokens.length < 1){
             return "?-?"; // if the multi-word token doesn't have any children (length of sub-array tokens is 0), alert. Do not allow to save.
         }
-        var first = this.tokens[0];
-        var last = this.tokens[this.tokens.length-1];
+        var first = this.tokens[0]; // id of first child
+        var last = this.tokens[this.tokens.length-1]; // id of last child
         id = first.id + "-" + last.id; // assign mwt id to be "smallestID-largestID"
         return String(id); //return in string version
     },
@@ -52,9 +52,11 @@ Object.defineProperty(MultiwordToken.prototype,'id',{ //to prototype or not to p
 
 Object.defineProperty(MultiwordToken.prototype,'serial',{
     get: function() {
+        // get annotated multi word token into conllu string form
+
         var finalString = "";
 
-        // handle apostrophes in token forms
+        // handle apostrophes inside the token
         var parentForm = this.form;
         if (parentForm.includes("'")){
             parentForm = parentForm.replace("'", "\'")
@@ -64,7 +66,7 @@ Object.defineProperty(MultiwordToken.prototype,'serial',{
         var parentSerialGetter = Object.getOwnPropertyDescriptor(Token.prototype,'serial');
         var parentMWT = parentSerialGetter.get.call(this);
 
-        finalString = finalString + parentMWT; // add parent mwt to the final string
+        finalString = finalString + parentMWT; // add parent mwt to the final conllu format string for the text
 
         for (word in this.tokens){
             finalString = finalString + "\n" + this.tokens[word].serial;// iteratively add each child to the final string.
@@ -74,7 +76,9 @@ Object.defineProperty(MultiwordToken.prototype,'serial',{
     },
 
     set: function(mwtString) {
-        // Split the initial string into the separate lines as would be found in Conllu format
+        // set multi word token string to modifiable form
+
+        // Split the initial string into separate lines as would be found in Conllu format
         var mwtLines = mwtString.split("\n");
 
         // First item in array (first line) turned into mwt "parent"
