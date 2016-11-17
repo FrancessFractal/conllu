@@ -1,5 +1,4 @@
 # Conllu
-A javascript tool for working with conllu files
 Conllu Editor is a tool capable of manipulating files in CoNLL-U format, including the creation and manipulation of multi-word tokens in a sentence. It is written in JavaScript.
 
 #Conllu object
