@@ -1,7 +1,7 @@
 'use strict';
 
 var rewire = require('rewire');
-var module = rewire('../scripts/Conllu.js');
+var module = rewire('../lib/Conllu.js');
 var Conllu = module.Conllu;
 
 var conllu_gold = require("../test/example1/conllu_obj.js").conllu;

@@ -1,7 +1,7 @@
 
-var MultiwordToken = require("../scripts/MultiwordToken.js").MultiwordToken;
-var TokenAggregate = require("../scripts/TokenAggregate.js").TokenAggregate;
-var Token = require("../scripts/Token.js").Token;
+var MultiwordToken = require("../lib/MultiwordToken.js").MultiwordToken;
+var TokenAggregate = require("../lib/TokenAggregate.js").TokenAggregate;
+var Token = require("../lib/Token.js").Token;
 
 chai = require("chai");
 var assert = chai.assert;

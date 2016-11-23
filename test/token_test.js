@@ -1,5 +1,5 @@
 
-var Token = require("../scripts/Token.js").Token;
+var Token = require("../lib/Token.js").Token;
 
 chai = require("chai");
 var assert = chai.assert;

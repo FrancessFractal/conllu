@@ -1,7 +1,7 @@
 
 var rewire = require('rewire');
 
-var module = rewire("../scripts/Sentence.js");
+var module = rewire("../lib/Sentence.js");
 var Token = function () {};
 module.__set__('Token', Token);
 
