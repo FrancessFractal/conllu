@@ -1,0 +1,40 @@
+{
+  "name": "conllu",
+  "version": "0.1.0",
+  "description": "Conllu is a JavaScript library capable of manipulating files in the CoNLL-U format.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.1.2",
+    "rewire": "^2.5.2"
+  },
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FrancessFractal/conllu.git"
+  },
+  "contributors": [
+    {
+      "name": "Magdalena Parks",
+      "url": "https://github.com/FrancessFractal"
+    },
+    {
+      "name": "Allison Adams",
+      "url": "https://github.com/aadams297"},
+    {
+      "name": "Manon Knoertzer",
+      "url": "https://github.com/Manon78"
+    }
+  ],
+  "license": "CC-BY-SA-4.0",
+  "bugs": {
+    "url": "https://github.com/FrancessFractal/conllu/issues"
+  },
+  "homepage": "https://github.com/FrancessFractal/conllu#readme"
+}
