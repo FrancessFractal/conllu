@@ -1,6 +1,6 @@
 {
   "name": "conllu",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Conllu is a JavaScript library capable of manipulating files in the CoNLL-U format.",
   "main": "index.js",
   "directories": {
