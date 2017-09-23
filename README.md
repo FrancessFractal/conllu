@@ -13,6 +13,14 @@ Then, require the conllu library.
 
 `var conllu = require('conllu')`
 
+#### Browser
+
+To use conllu in a browser, simply include the browser.js file.
+
+`<script src="{path_to_conllu_directory}/browser.js"></script>`
+
+The conllu library will be on `window.conllu`.
+
 ## Overview
 
 ###Conllu object
