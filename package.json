@@ -6,14 +6,18 @@
   "directories": {
     "test": "test"
   },
-  "dependencies": {},
+  "dependencies": {
+    "browserify": "^14.4.0",
+    "uglify": "^0.1.5"
+  },
   "devDependencies": {
     "chai": "^3.5.0",
     "mocha": "^3.1.2",
     "rewire": "^2.5.2"
   },
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha"
+    "test": "./node_modules/mocha/bin/mocha",
+    "browser-build": "browserify index.js --standalone conllu | uglifyjs > browser.js"
   },
   "repository": {
     "type": "git",
@@ -26,7 +30,8 @@
     },
     {
       "name": "Allison Adams",
-      "url": "https://github.com/aadams297"},
+      "url": "https://github.com/aadams297"
+    },
     {
       "name": "Manon Knoertzer",
       "url": "https://github.com/Manon78"
