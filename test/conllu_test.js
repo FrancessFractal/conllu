@@ -11,15 +11,16 @@ var assert = chai.assert;
 var Sentence = function () {};
 
 describe("Conllu", function () {
+
+    // Instance of the class being tested
     var conllu;
+
     beforeEach(function () {
         // Stub for Sentence
         module.__set__('Sentence', Sentence);
 
         // Stub for MultiwordToken
-        var MultiwordToken = function () {
-
-        };
+        var MultiwordToken = function () {};
         module.__set__('MultiwordToken', MultiwordToken);
         conllu = new Conllu();
     });
@@ -65,7 +66,7 @@ describe("Conllu", function () {
             });
         });
 
-        describe("seting to conllu gold file contents", function () {
+        describe("set", function () {
             beforeEach( function () {
                 conllu.serial = conllu_gold.serial;
             });

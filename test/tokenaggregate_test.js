@@ -7,13 +7,14 @@ chai = require("chai");
 var assert = chai.assert;
 
 describe("A TokenAggregate object", function() {
-    var tokens;
+
+    // Instance of TokenAggregate to be tested
     var ta;
     beforeEach(function () {
-        tokens = 'tokens';
+        var tokens = 'tokens';
         var A = function() {
             this[tokens] = [];
-            TokenAggregate.call(this,tokens);
+            TokenAggregate.call(this, tokens);
         };
         ta = new A();
     });

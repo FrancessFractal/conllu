@@ -5,6 +5,7 @@ var module = rewire("../lib/Sentence.js");
 var Token = function () {};
 module.__set__('Token', Token);
 
+// Set up stubs
 var MultiwordToken = function () {
     this.tokens = [];
 };
@@ -38,63 +39,91 @@ var assertTokensEquivalent = function (tokens, gold_tokens, parent) {
             Token,
             'expected token '+index+parent+' to be a Token');
 
-        assert.strictEqual(tokens[index].form,
+        assert.strictEqual(
+            tokens[index].form,
             gold_token.form,
-            'expected token '+index+parent+' to have form '+gold_token.form);
-        assert.strictEqual(tokens[index].lemma,
+            'expected token '+index+parent+' to have form '+gold_token.form
+        );
+        assert.strictEqual(
+            tokens[index].lemma,
             gold_token.lemma,
-            'expected token '+index+parent+' to have lemma '+gold_token.lemma);
-        assert.strictEqual(tokens[index].upostag,
+            'expected token '+index+parent+' to have lemma '+gold_token.lemma
+        );
+        assert.strictEqual(
+            tokens[index].upostag,
             gold_token.upostag,
-            'expected token '+index+parent+' to have upostag '+gold_token.upostag);
-        assert.strictEqual(tokens[index].xpostag,
+            'expected token '+index+parent+' to have upostag '+gold_token.upostag
+        );
+        assert.strictEqual(
+            tokens[index].xpostag,
             gold_token.xpostag,
-            'expected token '+index+parent+' to have xpostag '+gold_token.xpostag);
-        assert.strictEqual(tokens[index].feats,
+            'expected token '+index+parent+' to have xpostag '+gold_token.xpostag
+        );
+        assert.strictEqual(
+            tokens[index].feats,
             gold_token.feats,
-            'expected token '+index+parent+' to have feats '+gold_token.feats);
-        assert.strictEqual(tokens[index].head,
+            'expected token '+index+parent+' to have feats '+gold_token.feats
+        );
+        assert.strictEqual(
+            tokens[index].head,
             gold_token.head,
-            'expected token '+index+parent+' to have head '+gold_token.head);
-        assert.strictEqual(tokens[index].deprel,
+            'expected token '+index+parent+' to have head '+gold_token.head
+        );
+        assert.strictEqual(
+            tokens[index].deprel,
             gold_token.deprel,
-            'expected token '+index+parent+' to have deprel '+gold_token.deprel);
-        assert.strictEqual(tokens[index].deps,
+            'expected token '+index+parent+' to have deprel '+gold_token.deprel
+        );
+        assert.strictEqual(
+            tokens[index].deps,
             gold_token.deps,
-            'expected token '+index+parent+' to have deps '+gold_token.deps);
-        assert.strictEqual(tokens[index].misc,
+            'expected token '+index+parent+' to have deps '+gold_token.deps
+        );
+        assert.strictEqual(
+            tokens[index].misc,
             gold_token.misc,
-            'expected token '+index+parent+' to have misc '+gold_token.misc);
+            'expected token '+index+parent+' to have misc '+gold_token.misc
+        );
 
         // if gold has a tokens property, it reperesents a MultiwordToken
         if(gold_token.hasOwnProperty('tokens')) {
-            assert.instanceOf(tokens[index],
+            assert.instanceOf(
+                tokens[index],
                 MultiwordToken,
-                'expected token '+index+' to be a MultiwordToken');
+                'expected token '+index+' to be a MultiwordToken'
+            );
 
-            assert.lengthOf(tokens[index].tokens,
+            assert.lengthOf(
+                tokens[index].tokens,
                 gold_token.tokens.length,
-                'expected MultiwordToken '+index+'('+gold_token.form+') to have '+gold_token.tokens.length+' subtokens');
+                'expected MultiwordToken '+index+'('+gold_token.form+') to have '+gold_token.tokens.length+' subtokens'
+            );
 
 
             gold_token.tokens.forEach(function (subtok_gold, subindex) {
-                assert.instanceOf(tokens[index].tokens[subindex],
+                assert.instanceOf(
+                    tokens[index].tokens[subindex],
                     Token,
-                    'expected subtoken '+subindex+' of MultiwordToken '+index+'('+gold_token.form+') to be a Token');
+                    'expected subtoken '+subindex+' of MultiwordToken '+index+'('+gold_token.form+') to be a Token'
+                );
             });
 
             assertTokensEquivalent(tokens[index].tokens, gold_token.tokens, 'token '+index+' ('+gold_token.form+')');
         } else {
             // Do not check id of MultiwordTokens, since it is a computed property
-            assert.strictEqual(tokens[index].id,
+            assert.strictEqual(
+                tokens[index].id,
                 gold_token.id,
-                'expected token '+index+parent+' to have id '+gold_token.id);
+                'expected token '+index+parent+' to have id '+gold_token.id
+            );
         }
     });
 };
 
 
 describe("A Sentence object created by an empty construcor", function() {
+
+    // Instance of Sentence to be tested
     var sentence;
     beforeEach(function() {
         sentence = new Sentence();
